@@ -1,0 +1,502 @@
+@import "fonts"
+@import "libs"
+@import "vars"
+
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	&:before, &:after
+		-webkit-box-sizing: border-box
+		-moz-box-sizing: border-box
+		box-sizing: border-box
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+html, body
+	height: 100%
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	opacity: 1
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+//Header classes
+
+/* прелоад */
+.loader
+	background-color: $dark
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	z-index: 102
+.cssload-loader
+	position: fixed
+	top: calc(50% - 32px)
+	left: calc(50% - 32px)
+	width: 64px
+	height: 64px
+	border-radius: 50%
+	perspective: 800px
+
+.cssload-inner 
+	position: absolute
+	width: 100%
+	height: 100%
+	box-sizing: border-box
+	border-radius: 50%
+
+.cssload-inner.cssload-one 
+	left: 0%
+	top: 0%
+	animation: cssload-rotate-one 1.3s linear infinite
+	border-bottom: 5px solid rgba(241,89,65,0.95)
+
+.cssload-inner.cssload-two 
+	right: 0%
+	top: 0%
+	animation: cssload-rotate-two 1.3s linear infinite
+	border-right: 5px solid rgb(241,89,65)
+
+.cssload-inner.cssload-three 
+	right: 0%
+	bottom: 0%
+	animation: cssload-rotate-three 1.3s linear infinite
+	border-top: 5px solid rgb(241,89,65)
+
+@keyframes cssload-rotate-one 
+	0% 
+		transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg)
+	100% 
+		transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg)
+
+@keyframes cssload-rotate-two 
+	0% 
+		transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg)
+	100% 
+		transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg)
+
+@keyframes cssload-rotate-three 
+	0% 
+		transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg)
+	100% 
+		transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg)
+
+
+
+.hamburger
+	right: 1%
+	position: absolute
+	top: 35px
+	.hamburger-box
+		
+	.hamburger-inner, .hamburger-inner::after, .hamburger-inner::before
+		color: $accent
+		width: 37px
+		height: 2px
+		background-color: $accent
+
+.header-img
+	background-image: url("../img/people_study.jpg")
+	min-height: 100vh
+	background-size: cover
+	background-position: cover
+	background-attachment: fixed
+	position: relative
+	&::before 
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		background-color: $dark
+		opacity: .85
+		
+.mm-menu .mm-navbar a, .mm-menu .mm-navbar>*
+	color: $dark
+
+
+.mm-navbar
+	.mm-title
+		font-size: 25px
+		font-weight: 800
+
+
+		
+
+.header-flex
+	display: flex
+	height: 100%
+	position: relative
+	top: 25vh
+	text-align: center
+	color: #fff
+	
+
+.welcome
+	color: #fff
+	text-align: center
+	p
+		font-size: 15px
+		text-transform: uppercase
+		display: flex
+		align-items: center
+		white-space: nowrap
+		margin: 0
+		margin-bottom: -10px
+		span 
+			margin: 0 10px
+
+		&::before, &::after
+			content: ''
+			height: 1px
+			width: 100%
+			position: relative
+			background-color: #FFF
+			display: inline-block
+	
+	h1 
+		text-align: center
+		text-transform: uppercase
+		font-size: 65px
+		margin: 0
+		line-height: 1.6
+		border-bottom: 1px solid #fff 
+
+
+
+.button-center
+	display: flex
+	align-items: center
+	justify-content: center
+	height: 100%
+	margin-bottom: 0
+	margin-top: 40px
+
+.button
+	position: relative
+	text-align: center
+	
+	display: inline-block
+	border: none 
+	background-color: $accent
+	color: #fff
+	font-size: 14px
+	letter-spacing: 1px
+	padding: 11px 48px
+	border-radius: 100px
+	box-shadow: 0 4px 0 darken($accent, 6%)
+	transition: all .25s ease
+	&:hover, &:focus 
+		color: #fff 
+		text-decoration: none 
+	&:hover
+		background-color: darken($accent, 6%)
+	&:active
+		background-color: darken($accent, 6%)
+		transform: translateY(4px)
+
+.contact-icon
+	width: 100%
+	position: absolute
+	bottom: 0
+	display: flex
+	align-items: center
+	justify-content: center
+
+.fas 
+	margin:
+		right: 15px
+		left: 15px
+		bottom: 10px
+	font-size: 35px
+	color: $accent
+	&:hover
+		transform: scale(1.05) translateY(-3.5px)
+		transition: transform .25s ease
+
+//Маленькая секция со статистикой
+
+.light
+	background-color: #eaeaea
+
+.comp-stats
+	h3
+		font-size: 22px
+		margin-bottom: 0
+		text-transform: uppercase
+		span
+			font-size: 30px
+			color: #ff6600
+	p
+		margin-top: 5px
+		font-size: 17px
+		color: #4e4655
+
+//Price List section
+
+.price-list
+	background-image: url(../img/dictionary.jpg)
+	min-height: 100vh
+	background-size: cover
+	background-position: cover
+	background-attachment: fixed
+	position: relative
+	&::before 
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		background-color: #eaeaea
+		opacity: .75
+
+.price-list-content
+	&__span
+		text-decoration: line-through
+	h2
+		font-family: $bold-font
+		font-size: 35px
+		color: rgba(74, 68, 90, 0.98)
+	span
+		color: $accent
+		font-family: $bold-font
+
+	ul
+		padding: 0
+		li
+			list-style: none
+			span
+				font-size: 20px
+
+.right-side
+	text-align: right
+
+.wow  
+	visibility: hidden
+
+//Timer section
+
+.dark
+	background-color: $dark
+	opacity: .95
+.timer
+	text-align: center
+	h2
+		font-size: 35px
+		color: #fff
+	p 
+		font-size: 25px
+		color: $accent
+		text-transform: uppercase
+
+.timerDate
+	font-size: 45px
+	font-weight: bold
+	color: #fff
+	font-family: $bold-font
+
+
+//Fotorama section
+
+.s-gray
+	background-image: url(../img/books.jpg)
+	background-size: cover
+	background-position: cover
+	background-attachment: fixed
+	position: relative
+	&::before 
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		background-color: #eaeaea
+		opacity: .7
+
+	padding: 5% 0
+	h2
+		font-size: 30px
+		font-family: $bold-font
+
+.fotorama
+	background-color: rgba($over, .4)
+	&__arr
+		&-next, &-prev
+			&::before 
+				font-family: fontawesome
+				font-size: 32px
+		&-next
+			&::before 
+				content: '\f105'
+		&-prev
+			&::before 
+				content: '\f104'
+.fotorama__nav
+	&-wrap
+		position: absolute
+		bottom: 15px
+		padding: 0 30px
+		width: 100%
+
+.fotorama__thumb
+	border: 3px $dark solid
+	transition: border-color .5s ease
+	&-border 
+		border-color: $accent
+
+//Form section
+
+.form-group
+	input
+		margin: 
+			top: 30px
+			bottom: 20px
+			left: 50px
+		border: 1px solid $dark
+		padding: 5px 25px
+		color: #000
+		
+			
+	
+.button-form
+	position: relative
+	text-align: center
+	display: inline-block
+	border: none 
+	background-color: $accent !important
+	color: #fff
+	font-size: 14px
+	letter-spacing: 1px
+	padding: 10px 65px !important
+	margin-right: 0
+	transition: all .25s ease
+	z-index: 100
+	&:hover, &:focus 
+		color: #fff 
+		text-decoration: none 
+	&:hover
+		background-color: darken($accent, 6%)
+	&:active
+		background-color: darken($accent, 6%)
+		transform: translateY(4px)
+
+//Секция с отзывами
+.reviews-h2
+	text-align: center
+
+.map
+	text-align: center
+	&__content
+		width: 100%
+
+.reviews
+	text-align: center
+	&__rounded-img
+		border-radius: 10rem
+		border: $accent 5px solid
+		overflow: hidden
+		width: 110px
+		height: 110px
+		text-align: center
+		margin: auto
+		&:hover
+			transition: .25s ease 
+			transform: scale(1.1)
+	
+
+//Footer
+
+.footer-content
+	margin: 45px 0
+	color: #fff
+	h2, ul
+		margin-top: 0
+		color: $accent
+	h3
+		text-align: center
+
+	span
+		color: $accent
+		font-size: 18px
+		font-weight: 800
+	&_icons
+		margin-top: 35px
+		text-align: center
+		p 
+			text-align: center
+	&__menu
+		ul
+			list-style: none
+			li
+				margin: 2px
+				a 
+					color: $accent
+		&-arrows
+			font-size: 18px
+			margin-right: 8px
+			color: $accent
+
+		padding: 5px 0
+
+.top
+	position: fixed
+	bottom: 20px
+	right: -100px
+	background-color: $accent
+	z-index: 12
+	border-radius: 10rem
+	font-size: 20px
+	color: #fff
+	width: 50px
+	height: 50px
+	text-align: center
+	line-height: 50px
+	cursor: pointer
+	transition: all .3s ease
+	opacity: .8
+	&:hover
+		color: #fff
+		background-color: darken($accent, 6%)
+		opacity: 1
+	&.active
+		right: 20px
+		
+	
+
+@import "media" // Всегда в конце
